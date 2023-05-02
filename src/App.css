@@ -1,3 +1,38 @@
+
+/* Global Colors */
+:root {
+
+  /* Color sheme */
+  --primary: rgb(115, 182, 249);
+  --secondary: rgb(255, 185, 119);
+  --tertiary: rgb(106, 255, 113);
+  --dark-neutral: rgb(91, 91, 91);
+  --medium-neutral: rgb(128, 128, 128);
+  --neutral: rgb(247, 245, 243);
+  --dark-font: rgb(45, 44, 44);
+  --light-font: rgb(246, 246, 246);
+
+  /* Default spacing options */
+  --padding: 15px;
+
+ }
+
+ .AR{
+  text-align: right;
+  padding-right: var(--padding);
+ }
+
+ .comp-right{
+  float: right;
+  background-color: var(--tertiary);
+  color: var(--dark-font);
+  margin-right: var(--padding);
+ }
+
+ .flex-container{
+
+ }
+
 .App {
   text-align: center;
 }

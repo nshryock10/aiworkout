@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Nav from './Components/Nav';
+import QuestionCard from './Components/QuestionCard';
+import WorkoutCard from './Components/WorkOutCard';
 
 function App() {
+
+  const [inputs, setInputs] = useState({});
+  const [stage, setStage] = useState('question');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      {stage==='question' ? 
+      <QuestionCard 
+        setStage={setStage}
+        setInputs={setInputs}
+        inputs={inputs}
+      /> :
+      <WorkoutCard 
+        inputs={inputs}
+      />}
     </div>
   );
 }
