@@ -20,6 +20,7 @@ function App() {
       /> :
       <WorkoutCard 
         inputs={inputs}
+        setStage={setStage}
       />}
     </div>
   );

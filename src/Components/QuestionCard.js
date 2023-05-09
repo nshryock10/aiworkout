@@ -62,9 +62,9 @@ function QuestionCard(props) {
         </div>
         <div onChange={updateSelection}>
             <label>{questions[questionIndex].question}</label>
-            {questions[questionIndex].options.map((option, id) => {
+            {questions[questionIndex].options.map((option, index) => {
                 return(
-                    <div className="options" key={id}>
+                    <div className="options" key={index}>
                         <input 
                             type="radio"
                             name="answer"
@@ -76,7 +76,7 @@ function QuestionCard(props) {
                 )
             })}
             <button
-                className="comp-right"
+                className="comp-right tertiary-button"
                 onClick={(e) => {
                     if(questionIndex < questions.length-1){
                         handleClick(e);

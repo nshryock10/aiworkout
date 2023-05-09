@@ -22,10 +22,18 @@
   padding-right: var(--padding);
  }
 
- .comp-right{
-  float: right;
+ .tertiary-button {
   background-color: var(--tertiary);
   color: var(--dark-font);
+ }
+
+ .primary-button{
+  background-color: var(--primary);
+  color: var(--light-font);
+ }
+
+ .comp-right{
+  float: right;
   margin-right: var(--padding);
  }
 

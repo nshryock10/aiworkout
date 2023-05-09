@@ -3,6 +3,11 @@ import { useEffect } from "react";
 function WorkoutCard(props) {
 
     const inputs = props.inputs;
+    const setStage = props.setStage;
+
+    const handleClick = () => {
+
+    }
 
     useEffect( () => {
         console.log(inputs)
@@ -15,6 +20,12 @@ function WorkoutCard(props) {
                 <p>{input[1]}</p>
             )
         })}
+        <button 
+            className="primary-button"
+            onClick={()=>{setStage('question')}}
+        >
+            Restart
+        </button>
       </div>
     );
   }
