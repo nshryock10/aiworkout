@@ -5,21 +5,24 @@ function WorkoutCard(props) {
     const inputs = props.inputs;
     const setStage = props.setStage;
 
-    const handleClick = () => {
-
-    }
-
     useEffect( () => {
-        console.log(inputs)
+        //console.log(inputs)
     }, [])
 
-    return (
-      <div >
-        {Object.entries(inputs).map(input => {
+    /*
+    old inputs
+    {Object.entries(inputs).map(input => {
             return(
                 <p>{input[1]}</p>
             )
         })}
+    */
+
+    return (
+      <div >
+        {props.workout !==null && 
+            <p>{props.workout}</p>
+        }
         <button 
             className="primary-button"
             onClick={()=>{setStage('question')}}

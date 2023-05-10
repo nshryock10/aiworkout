@@ -33,7 +33,7 @@ function QuestionCard(props) {
     }
 
     //Handles submission of data when all questions are answqered
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         //Update the state with input value
@@ -41,6 +41,7 @@ function QuestionCard(props) {
 
         //Update the stage once all questions are answered
         updateStage('submitted');
+
     }
 
     //Get questions on component render
