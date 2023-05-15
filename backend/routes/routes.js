@@ -23,7 +23,7 @@ router.post("/chat", async (req, res, next) => {
     res.status(200).send([completion.data.choices[0].message, completion.data.choices[0].finish_reason])
     
     }catch(error){
-
+        console.log(error.response)
         console.log(error.response.status)
         res.status(error.response.status || 500).send(error.response.statusText)
     }

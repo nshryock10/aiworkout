@@ -63,19 +63,77 @@ function QuestionCard(props) {
         </div>
         <div onChange={updateSelection}>
             <label>{questions[questionIndex].question}</label>
-            {questions[questionIndex].options.map((option, index) => {
-                return(
-                    <div className="options" key={index}>
-                        <input 
-                            type="radio"
-                            name="answer"
-                            value={option}
-                            
-                        ></input>
-                        <label>{option}</label>
-                    </div>
-                )
+            {
+                questions[questionIndex].options.length > 0 &&
+                questions[questionIndex].answer === 'multiple' &&
+                typeof questions[questionIndex].options[0] === 'object' &&
+                questions[questionIndex].options.map((category) => {
+                    return (
+                        <div>
+                            <p>{category.category}</p>
+                            {
+                                category.options.map((option, index) => {
+                                    return (
+                                        <div className="options" key={index}>
+                                            <input 
+                                                type="checkbox"
+                                                name="answer"
+                                                value={option}
+                                                
+                                            ></input>
+                                            <label>{option}</label>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )        
+                    
             })}
+            {
+                questions[questionIndex].options.length > 0 &&
+                questions[questionIndex].answer === 'single' &&
+                questions[questionIndex].options.map((option, index) => {
+                    return(
+                        <div className="options" key={index}>
+                            <input 
+                                type="radio"
+                                name="answer"
+                                value={option}
+                                
+                            ></input>
+                            <label>{option}</label>
+                        </div>
+                    )
+            })}
+            {
+                questions[questionIndex].options.length > 0 &&
+                questions[questionIndex].answer === 'multiple' &&
+                typeof questions[questionIndex].options[0] !== 'object' &&
+                questions[questionIndex].options.map((option, index) => {
+                    return(
+                        <div className="options" key={index}>
+                            <input 
+                                type="checkbox"
+                                name="answer"
+                                value={option}
+                                
+                            ></input>
+                            <label>{option}</label>
+                        </div>
+                    )
+            })}
+            {
+                questions[questionIndex].options.length === 0 &&
+                <div>
+                    <input
+                        type="text"
+                        name="answer"
+                        placeholder='1-12 weeks'
+                    >
+                    </input>
+                </div>
+            }
             <button
                 className="comp-right tertiary-button"
                 onClick={(e) => {

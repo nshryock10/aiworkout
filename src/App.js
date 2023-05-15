@@ -24,10 +24,16 @@ function App() {
 
   const callAPI = async (prompt) => {
     const response = await getWorkout(prompt);
+    if(response.status && response.status !==200){
+      setWorkout(`${response.status} error. Something went wrong on our end`)
+      setIsLoading(false);
+    }else{
+      setWorkout(response[0].content)
+      setIsLoading(false);
+    }
 
     console.log(response)
-    setWorkout(response[0].content)
-    setIsLoading(false);
+    
   }
 
   return (
