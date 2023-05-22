@@ -25,15 +25,28 @@ function App() {
 
   const callAPI = async (prompt) => {
     const response = await getWorkout(prompt);
+    
     if(response.status && response.status !==200){
+    
       console.log(response)
       setWorkout(`${response.status} error. Something went wrong on our end`)
       setIsLoading(false);
+    
     }else{
-      console.log(response[0].content)
-      const myObj = await JSON.parse(response[0].content);
-      setWorkout(myObj)
-      setIsLoading(false);
+      
+      try{
+        const myObj = await JSON.parse(response[0].content);
+        setWorkout(myObj)
+        setIsLoading(false);
+        console.log(response[0].content)
+      }catch(err){
+        console.log(err)
+        //setStage('error')
+        setWorkout(response[0].content);
+        setIsLoading(false);
+        console.log(response[0].content)
+      }
+      
     }
   }
 
@@ -53,6 +66,12 @@ function App() {
           workout={workout}
           setStage={setStage}
         />
+      }
+      {
+        stage === 'error' && 
+        <div>
+          <p>Error</p>
+        </div>
       }
       { stage==='submitted' &&
         isLoading===true &&

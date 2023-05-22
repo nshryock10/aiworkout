@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Week from './Week';
 
 function WorkoutCard(props) {
 
@@ -12,35 +13,14 @@ function WorkoutCard(props) {
 
     return (
       <div >
-        {workout !== null &&
-            <div>
-                {workout.weeks.map(week => {
-                    return(
-                        <div>
-                            <h2>{` Week ${week.week}`}</h2>
-                            {week.days.map(day => {
-                                return(
-                                    <div>
-                                        <h3>{`Day ${day.day}`}</h3>
-                                        <p>{day.description}</p>
-                                        <br/>
-                                        <p>Warm-up:</p>
-                                        {day.warmup.map(movement => {
-                                            return(
-                                                <div>
-                                                    <h4>{movement.description}</h4>
-                                                    <span>{`Sets: ${movement.sets} `}</span>
-                                                    <span>{`Reps: ${movement.reps}`}</span>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    )
-                })}
-            </div>
+        {workout !== null && 
+        workout.weeks !== null &&
+            workout.weeks.map(week => {
+                return(
+                    <Week week={week} />
+                )
+            })
+            
         }
         <button 
             className="primary-button"

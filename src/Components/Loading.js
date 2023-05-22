@@ -6,7 +6,7 @@ function LoadingDots() {
   return (
     <div>
         <p>Generating workout...</p>
-        <span class="loader"></span>
+        <span className="loader"></span>
     </div>
     
   );

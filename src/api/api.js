@@ -17,7 +17,8 @@ export const getWorkout = async (prompt) => {
         if(response.status !== 200){
             return response
         }else{
-            return await response.json();
+            const workout = await response.json();
+            return workout;
         }
         
     }}catch(err){

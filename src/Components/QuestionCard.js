@@ -92,9 +92,9 @@ function QuestionCard(props) {
                 questions[questionIndex].options.length > 0 &&
                 questions[questionIndex].answer === 'multiple' &&
                 typeof questions[questionIndex].options[0] === 'object' &&
-                questions[questionIndex].options.map((category) => {
+                questions[questionIndex].options.map((category, index) => {
                     return (
-                        <div>
+                        <div key={index}>
                             <p>{category.category}</p>
                             {
                                 category.options.map((option, index) => {
