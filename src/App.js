@@ -5,6 +5,7 @@ import QuestionCard from './Components/QuestionCard';
 import WorkoutCard from './Components/WorkOutCard';
 import Loading from './Components/Loading';
 import { getWorkout } from './api/api';
+import { getPrompt } from './utils/data';
 
 function App() {
 
@@ -16,8 +17,8 @@ function App() {
   useEffect(() => {
     if(stage === 'submitted'){
       setIsLoading(true)
-      console.log("Loading")
-      const prompt = `Give me a ${inputs.experience}-level workout that lasts ${inputs.days} day(s) per week`;
+      const prompt = getPrompt(inputs);
+      //const prompt = `Give me a ${inputs.experience}-level workout that lasts ${inputs.days} day(s) per week`;
       const response = callAPI(prompt);
     }
   }, [stage]);
@@ -29,12 +30,11 @@ function App() {
       setWorkout(`${response.status} error. Something went wrong on our end`)
       setIsLoading(false);
     }else{
-      setWorkout(response[0].content)
+      console.log(response[0].content)
+      const myObj = await JSON.parse(response[0].content);
+      setWorkout(myObj)
       setIsLoading(false);
     }
-
-    console.log(response)
-    
   }
 
   return (

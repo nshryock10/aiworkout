@@ -2,6 +2,60 @@ export const getQuestions = () => {
     return questions;
 }
 
+export const getPrompt = (inputs) => {
+
+    const type = inputs.type.toString();
+    const equipment = inputs.equipment.toString();
+    const muscles = inputs.muscles.toString();
+    const methodology = inputs.methods.toString();
+
+    const prompt = `\n
+        Give me a ${inputs.experience} level workout program for ${inputs.days} day(s) per week that is ${inputs.weeks} week(s) long.
+        
+        Each workout should last approximately ${inputs.minutes} minutes.
+        
+        The workouts should focus on ${type} that only utilizes the following equipment: ${equipment}.
+        
+        The workouts should target ${muscles} muscle groups.
+
+        Incorporate ${methodology} methodologies.
+        
+        Reutrn the response in the following object and array format
+        {
+            weeks: [
+                {
+                    week: value,
+                    days: [
+                        {
+                            day: value,
+                            description: value,
+                            warmup: [
+                                {
+                                    step: value,
+                                    description: value,
+                                    sets: value,
+                                    reps: value,
+                                    rest: value
+                                }
+                            ],
+                            workout: [
+                                {
+                                    step: value,
+                                    description: value,
+                                    sets: value,
+                                    reps: value,
+                                    rest: value
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }`;
+
+    return prompt;
+}
+
 const questions = [
     {
         id: 1,

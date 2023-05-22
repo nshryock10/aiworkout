@@ -4,24 +4,43 @@ function WorkoutCard(props) {
 
     const inputs = props.inputs;
     const setStage = props.setStage;
+    const workout = props.workout;
 
     useEffect( () => {
         //console.log(inputs)
     }, [])
 
-    /*
-    old inputs
-    {Object.entries(inputs).map(input => {
-            return(
-                <p>{input[1]}</p>
-            )
-        })}
-    */
-
     return (
       <div >
-        {props.workout !==null && 
-            <p>{props.workout}</p>
+        {workout !== null &&
+            <div>
+                {workout.weeks.map(week => {
+                    return(
+                        <div>
+                            <h2>{` Week ${week.week}`}</h2>
+                            {week.days.map(day => {
+                                return(
+                                    <div>
+                                        <h3>{`Day ${day.day}`}</h3>
+                                        <p>{day.description}</p>
+                                        <br/>
+                                        <p>Warm-up:</p>
+                                        {day.warmup.map(movement => {
+                                            return(
+                                                <div>
+                                                    <h4>{movement.description}</h4>
+                                                    <span>{`Sets: ${movement.sets} `}</span>
+                                                    <span>{`Reps: ${movement.reps}`}</span>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+            </div>
         }
         <button 
             className="primary-button"

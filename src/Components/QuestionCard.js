@@ -17,11 +17,35 @@ function QuestionCard(props) {
 
     //Updates the inputs state based on the question key
     const updateSelection = (e) => {
-        setSelection(e.target.value);
+
+        //Create array of selection for multiple
+        if(questions[questionIndex].answer === 'multiple'){
+            let input = '';
+
+            if(e.target.checked){//add value if checked
+                if(selection !== null){
+                    input = [...selection, e.target.value] 
+                }else{
+                    input = [e.target.value]
+                }
+                
+                setSelection(input)
+
+            }else {//remove value if unchecked
+                const arry = selection
+                const index = arry.find(element => element === e.target.value);
+                arry.splice(index, 1)
+            }
+            
+            
+            
+        }else{ //Set selection to single value
+            setSelection(e.target.value);
+        }
     }
     
     //Advances the question after 'Next' is clicked                                   
-    const handleClick = (e) => {
+    const handleNext = (e) => {
         e.preventDefault();
 
         //Update the state with input value
@@ -30,6 +54,7 @@ function QuestionCard(props) {
         //Need to check that question is answered before moving
         let index = questionIndex + 1;
         setQuestionIndex(index++);
+        setSelection(null);
     }
 
     //Handles submission of data when all questions are answqered
@@ -74,7 +99,10 @@ function QuestionCard(props) {
                             {
                                 category.options.map((option, index) => {
                                     return (
-                                        <div className="options" key={index}>
+                                        <div 
+                                            className="options" 
+                                            key={index}
+                                        >
                                             <input 
                                                 type="checkbox"
                                                 name="answer"
@@ -138,7 +166,7 @@ function QuestionCard(props) {
                 className="comp-right tertiary-button"
                 onClick={(e) => {
                     if(questionIndex < questions.length-1){
-                        handleClick(e);
+                        handleNext(e);
                     }else{
                         handleSubmit(e);
                     } 
