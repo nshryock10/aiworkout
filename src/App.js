@@ -5,7 +5,7 @@ import QuestionCard from './Components/QuestionCard';
 import WorkoutCard from './Components/WorkOutCard';
 import Loading from './Components/Loading';
 import { getWorkout } from './api/api';
-import { getPrompt } from './utils/data';
+import { getPrompt, getWorkoutData } from './utils/data';
 
 function App() {
 
@@ -14,14 +14,31 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [workout, setWorkout] = useState(null);
 
+  /* Uncomment when done with layout
   useEffect(() => {
     if(stage === 'submitted'){
       setIsLoading(true)
       const prompt = getPrompt(inputs);
-      //const prompt = `Give me a ${inputs.experience}-level workout that lasts ${inputs.days} day(s) per week`;
       const response = callAPI(prompt);
     }
   }, [stage]);
+  */
+
+
+  //This block is just for workout card dev
+  useEffect(() => {
+    convertJson()
+  }, [])
+
+  const convertJson = async () => {
+    const workData = await getWorkoutData();
+    //const jsonData = await workData.json();
+    //const data = await JSON.parse(workData);
+    setWorkout(workData);
+    setStage('submitted')
+  }
+
+  //-----------------------------------
 
   const callAPI = async (prompt) => {
     const response = await getWorkout(prompt);

@@ -1,0 +1,12 @@
+.day-card{
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: 12px;
+}
+
+.day-label{
+    text-align: left;
+    padding-left: 15px;
+    display: flex;
+    color: var(--primary);
+}

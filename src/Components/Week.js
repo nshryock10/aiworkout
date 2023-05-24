@@ -9,9 +9,9 @@ function Week(props) {
     return (
         <div>
             {week !== null && 
-                week.days.map(day => {
+                week.days.map((day, index) => {
                     return(
-                        <Day day={day} />
+                        <Day day={day} key={index} />
                     )
                 })}
         </div>

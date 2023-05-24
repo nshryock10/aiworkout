@@ -1,0 +1,16 @@
+select option{
+    color: red;
+}
+
+.select-label {
+    margin-right: 10px;
+    color: var(--purple);
+}
+
+.select-dropdown {
+    background-color: white;
+    margin-bottom: 20px auto;
+    height: 30px;
+    width: 130px;
+    border-radius: 3px;
+}
