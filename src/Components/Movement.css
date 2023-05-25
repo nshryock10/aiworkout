@@ -1,0 +1,29 @@
+.movement-box{
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    padding: 0 15px 0 15px;
+}
+
+.movement-description{
+    display: inline-block;
+    text-align: left;
+}
+
+.reps{
+    margin-left: 7px;
+}
+
+.sets-reps{
+    display: flex;
+    color: var(--medium-neutral);
+    margin-top: 5px;
+}
+
+.sets{
+
+}
+
+.step{
+    font-weight: bold;
+}

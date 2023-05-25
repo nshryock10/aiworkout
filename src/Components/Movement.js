@@ -6,13 +6,17 @@ function Movement(props) {
     const movement = props.movement;
     if(movement){
     return (
-        <div>
-            <p>{`${movement.step}) `}</p>
-            <p>{movement.description}</p>
-            
-            <span>{`Sets: ${movement.sets} `}</span>
-            <span>{`Reps: ${movement.reps}`}</span>
-               
+        <div className='movement-box'>
+
+            <div className='movement-description'>
+                <span className='step'>{`${movement.step}: `}</span>
+                <span>{movement.description}</span>
+            </div>
+            <div className="sets-reps">
+               <span className='sets' >{`Sets: ${movement.sets} `}</span>
+                <span className='reps' >{`Reps: ${movement.reps}`}</span> 
+            </div>
+    
         </div>
             
     )}else{
