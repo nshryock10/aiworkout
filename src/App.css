@@ -1,14 +1,18 @@
+@import './fonts.css';
+
 
 /* Global Colors */
 :root {
 
   /* Color sheme */
   --primary: rgb(115, 182, 249);
-  --secondary: rgb(255, 185, 119);
+  --dark-primary: rgb(60, 144, 229);
+  --secondary: rgb(249, 149, 55);
   --tertiary: rgb(106, 255, 113);
   --dark-neutral: rgb(91, 91, 91);
-  --medium-neutral: rgb(128, 128, 128);
-  --neutral: rgb(247, 245, 243);
+  --medium-neutral: rgb(248, 234, 186);
+  --lighter-neutral: rgb(168, 168, 168);
+  --neutral: rgb(251, 248, 229);
   --dark-font: rgb(45, 44, 44);
   --light-font: rgb(246, 246, 246);
 
@@ -16,6 +20,20 @@
   --padding: 15px;
 
  }
+
+
+h1 {
+  font-family: 'Playfair';
+  font-weight: 300;
+  font-size: 48px;
+}
+
+.App{
+  background-color: var(--neutral);
+  height: 100vh;
+  font-family: 'Manrope';
+  font-weight: 300;
+}
 
  .AR{
   text-align: right;
@@ -25,6 +43,13 @@
  .tertiary-button {
   background-color: var(--tertiary);
   color: var(--dark-font);
+  width: 300px;
+  height: 50px;
+  font-family: inherit;
+  font-size: 18px;
+  border: 1px var(--lighter-neutral) solid;
+  border-radius: 7px;
+  padding: 0;
  }
 
  .primary-button{

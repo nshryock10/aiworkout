@@ -22,7 +22,7 @@ workout.weeks.map(week => {
     */
 
     return (
-      <div >
+      <div className="workout-card" >
         {
             workout !== null && 
             workout.weeks !== null &&

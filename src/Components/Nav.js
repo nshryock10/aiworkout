@@ -3,7 +3,7 @@
 function Nav() {
     return (
       <div >
-        <p>Fit / Nova</p>
+        <h1>Fiit.io</h1>
       </div>
     );
   }

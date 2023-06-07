@@ -1,6 +1,8 @@
 import './QuestionCard.css';
 import { useState, useEffect, useRef } from 'react';
 import { getQuestions } from '../utils/data.js';
+import classNames from 'classnames';
+import ListOption from './ListOption';
 
 function QuestionCard(props) {
 
@@ -9,7 +11,9 @@ function QuestionCard(props) {
     const [questionIndex, setQuestionIndex] = useState(0); //Initiate question index to 0 to start with first question
     const [questions, setQuestions] = useState([]); //Initiate question index to 0 to start with first question
     const [selection, setSelection] = useState(null);
-    //const [submitted, setSubmitted] = useState(false);
+
+    const minValue = 0;
+    const maxValue = 7;
 
     const updateInputs = props.setInputs;
     const updateStage = props.setStage;
@@ -18,8 +22,7 @@ function QuestionCard(props) {
     //Updates the inputs state based on the question key
     const updateSelection = (e) => {
 
-        //Create array of selection for multiple
-        if(questions[questionIndex].answer === 'multiple'){
+       if(questions[questionIndex].answer === 'multiple'){ //Create array of selection for multiple
             let input = '';
 
             if(e.target.checked){//add value if checked
@@ -36,9 +39,6 @@ function QuestionCard(props) {
                 const index = arry.find(element => element === e.target.value);
                 arry.splice(index, 1)
             }
-            
-            
-            
         }else{ //Set selection to single value
             setSelection(e.target.value);
         }
@@ -61,6 +61,9 @@ function QuestionCard(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        console.log('updating inputs')
+        console.log(inputs)
+
         //Update the state with input value
         updateInputs({...inputs, [questions[questionIndex].questionKey]: selection});
 
@@ -81,13 +84,14 @@ function QuestionCard(props) {
             </div>
         )
     }
+
     return (
       <div className="card-container">
         <div className="card-header"> 
             <p className="AR">{questionIndex + 1}/{questions.length}</p>
         </div>
-        <div onChange={updateSelection}>
-            <label>{questions[questionIndex].question}</label>
+        <div onClick={updateSelection}>
+            <label className='question'>{questions[questionIndex].question}</label>
             {
                 questions[questionIndex].options.length > 0 &&
                 questions[questionIndex].answer === 'multiple' &&
@@ -95,21 +99,12 @@ function QuestionCard(props) {
                 questions[questionIndex].options.map((category, index) => {
                     return (
                         <div key={index}>
-                            <p>{category.category}</p>
+                            <p >{category.category}</p>
                             {
                                 category.options.map((option, index) => {
                                     return (
-                                        <div 
-                                            className="options" 
-                                            key={index}
-                                        >
-                                            <input 
-                                                type="checkbox"
-                                                name="answer"
-                                                value={option}
-                                                
-                                            ></input>
-                                            <label>{option}</label>
+                                        <div>
+                                            <ListOption option={option} index={index} type='checkbox' />
                                         </div>
                                     )
                                 })
@@ -123,14 +118,8 @@ function QuestionCard(props) {
                 questions[questionIndex].answer === 'single' &&
                 questions[questionIndex].options.map((option, index) => {
                     return(
-                        <div className="options" key={index}>
-                            <input 
-                                type="radio"
-                                name="answer"
-                                value={option}
-                                
-                            ></input>
-                            <label>{option}</label>
+                        <div>
+                            <ListOption option={option} index={index} type='radio' />
                         </div>
                     )
             })}
@@ -140,26 +129,24 @@ function QuestionCard(props) {
                 typeof questions[questionIndex].options[0] !== 'object' &&
                 questions[questionIndex].options.map((option, index) => {
                     return(
-                        <div className="options" key={index}>
-                            <input 
-                                type="checkbox"
-                                name="answer"
-                                value={option}
-                                
-                            ></input>
-                            <label>{option}</label>
+                        <div>
+                            <ListOption option={option} index={index} type='checkbox' />
                         </div>
                     )
             })}
             {
                 questions[questionIndex].options.length === 0 &&
                 <div>
+                    <label>{minValue}</label>
                     <input
-                        type="text"
+                        type="range"
                         name="answer"
-                        placeholder='1-12 weeks'
+                        defaultValue={minValue}
+                        min={minValue}
+                        max={maxValue}
                     >
                     </input>
+                    <label>{maxValue}</label>
                 </div>
             }
             <button

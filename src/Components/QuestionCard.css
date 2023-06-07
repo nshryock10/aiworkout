@@ -1,10 +1,47 @@
+
+button{
+    margin: 20px auto;
+}
+
 .card-container {
     width: 80%;
     min-height: 170px;
     margin: 0 auto;
+    color: var(--dark-font);
+    font-size: 24px;
+    text-align: left;
+}
 
-    border: solid 1px var(--dark-neutral);
-    border-radius: 10px;
-    background-color: var(--medium-neutral);
-    color: var(--light-font)
+li{
+    margin-top: 20px;
+    list-style-type: none;
+}
+
+.question{
+    text-align: center;
+}
+.options{
+    height: 30px;
+    width: inherit;
+    margin-top: 20px;
+}
+
+.radio-btn{
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+}
+.radio-label{
+    width: 70%;
+    position: absolute;
+    transition: all .25s;
+}
+
+.options .radio-btn:checked+.radio-label{
+    background-color: var(--primary);
+    color: var(--light-font);
+    border-radius: 5px;
+    padding-left: 30px;
 }

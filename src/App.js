@@ -27,15 +27,18 @@ function App() {
 
   //This block is just for workout card dev
   useEffect(() => {
+    if(stage === 'submitted'){
+      console.log(inputs)
+    }
     convertJson()
-  }, [])
+  }, [stage])
 
   const convertJson = async () => {
     const workData = await getWorkoutData();
     //const jsonData = await workData.json();
     //const data = await JSON.parse(workData);
     setWorkout(workData);
-    setStage('submitted')
+    setStage('question')
   }
 
   //-----------------------------------

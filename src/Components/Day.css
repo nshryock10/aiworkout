@@ -1,7 +1,10 @@
 .day-card{
-    border: 1px black solid;
     border-radius: 5px;
     margin: 12px;
+    background-color: white;
+    border: 1px solid var(--lighter-neutral);
+    box-shadow: 3px 3px 10px var(--medium-neutral);
+    padding: 10px 0 10px 0;
 }
 
 .day-bar {

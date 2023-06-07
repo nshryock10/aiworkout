@@ -4,6 +4,7 @@ import './Movement.css'
 function Movement(props) {
 
     const movement = props.movement;
+    const index = props.key;
     if(movement){
     return (
         <div className='movement-box'>
@@ -13,7 +14,7 @@ function Movement(props) {
                 <span>{movement.description}</span>
             </div>
             <div className="sets-reps">
-               <span className='sets' >{`Sets: ${movement.sets} `}</span>
+                <span className='sets' >{`Sets: ${movement.sets}`}</span>
                 <span className='reps' >{`Reps: ${movement.reps}`}</span> 
             </div>
     
