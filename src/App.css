@@ -43,8 +43,10 @@ h1 {
  .tertiary-button {
   background-color: var(--tertiary);
   color: var(--dark-font);
-  width: 300px;
-  height: 50px;
+  width: 80%;
+  display: block;
+  margin: 30px auto;
+  height: 40px;
   font-family: inherit;
   font-size: 18px;
   border: 1px var(--lighter-neutral) solid;
@@ -62,10 +64,6 @@ h1 {
   margin-right: var(--padding);
  }
 
- .flex-container{
-
- }
-
 .App {
   text-align: center;
 }
@@ -75,11 +73,7 @@ h1 {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;

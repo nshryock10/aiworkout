@@ -75,22 +75,34 @@ const questions = [
         id: 3,
         questionKey: 'days',
         question: 'How many days/week do you want to workout?',
-        options: ['1', '2', '3', '4', '5', '6', '7'],
-        answer: 'single'
+        answer: 'range',
+        options: '',
+        max: 7,
+        min: 1,
+        step: 1,
+        unit: 'days'
     },
     {
         id: 4,
         questionKey: 'weeks',
         question: 'How many weeks do you want your program to last?',
+        answer: 'range',
         options: '',
-        answer: 'text'
+        max: 4,
+        min: 1,
+        step: 1,
+        unit: 'weeks'
     },
     {
         id: 5,
         questionKey: 'minutes',
         question: 'How how long can you workout each day?',
-        options: [5, 10, 15, 30, 45, 60, '60+'],
-        answer: 'single'
+        answer: 'range',
+        options: '',
+        max: 90,
+        min: 5,
+        step: 5,
+        unit: 'minutes'
     },
     {
         id: 6,

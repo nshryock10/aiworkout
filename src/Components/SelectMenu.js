@@ -19,7 +19,6 @@ function SelectMenu(props) {
             arry.push(i+1)
         }
         setWeeks(arry)
-        console.log(weeks)
     }, [])
 
     return (

@@ -1,20 +1,17 @@
 
-button{
-    margin: 20px auto;
-}
 
 .card-container {
-    width: 80%;
-    min-height: 170px;
+    width: 85%;
+    max-height: 700px;
     margin: 0 auto;
     color: var(--dark-font);
     font-size: 24px;
     text-align: left;
+    overflow: scroll;
 }
 
-li{
-    margin-top: 20px;
-    list-style-type: none;
+.input-container{
+    width: 100%;
 }
 
 .question{
