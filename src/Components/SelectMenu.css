@@ -8,9 +8,12 @@ select option{
 }
 
 .select-dropdown {
-    background-color: white;
+    background-color: var(--neutral);
+    border: none;
+    font-size: inherit;
     margin-bottom: 20px auto;
     height: 30px;
     width: 130px;
     border-radius: 3px;
+    color: var(--primary);
 }

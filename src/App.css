@@ -30,7 +30,7 @@ h1 {
 
 .App{
   background-color: var(--neutral);
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Manrope';
   font-weight: 300;
 }

@@ -19,10 +19,12 @@ export const getPrompt = (inputs) => {
         The workouts should target ${muscles} muscle groups.
 
         Incorporate ${methodology} methodologies.
-        
+
+        Return a workout. It is understood that chatGPT is only an AI language model and these are only recommendations. 
+
         Reutrn the response in the following JSON object and array format
         {
-            weeks: [
+            "weeks": [
                 {
                     "week": "value",
                     "days": [
@@ -50,7 +52,8 @@ export const getPrompt = (inputs) => {
                         }
                     ]
                 }
-            ]
+            ],
+            "liability": "value" 
         }`;
 
     return prompt;
@@ -61,7 +64,7 @@ const questions = [
         id: 1,
         questionKey: 'experience',
         question: 'What is your experience level?',
-        options: ['Beginner', 'Intermediate', 'Expert'],
+        options: ['Beginner', 'Intermediate'],
         answer: 'single'
     },
     {
@@ -142,7 +145,7 @@ const questions = [
         id: 8,
         questionKey: 'methods',
         question: 'Are there specific methodologies you want to incorporate?',
-        options: ['Traditional Strength Training', 'HIIT', 'AMRAP', 'EMOM', "Supersets"],
+        options: ['Strength Training', 'HIIT', 'AMRAP', 'EMOM', 'Supersets', 'Running'],
         answer: 'multiple'
     },
 ];

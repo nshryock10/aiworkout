@@ -14,7 +14,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [workout, setWorkout] = useState(null);
 
-  /* Uncomment when done with layout
+  //Uncomment when done with layout
   useEffect(() => {
     if(stage === 'submitted'){
       setIsLoading(true)
@@ -22,9 +22,9 @@ function App() {
       const response = callAPI(prompt);
     }
   }, [stage]);
-  */
 
 
+/*
   //This block is just for workout card dev
   useEffect(() => {
     if(stage === 'submitted'){
@@ -32,6 +32,7 @@ function App() {
     }
     convertJson()
   }, [stage])
+  
 
   const convertJson = async () => {
     const workData = await getWorkoutData();
@@ -40,7 +41,7 @@ function App() {
     setWorkout(workData);
     setStage('question')
   }
-
+*/
   //-----------------------------------
 
   const callAPI = async (prompt) => {
@@ -61,7 +62,7 @@ function App() {
         console.log(response[0].content)
       }catch(err){
         console.log(err)
-        //setStage('error')
+        setStage('error')
         setWorkout(response[0].content);
         setIsLoading(false);
         console.log(response[0].content)

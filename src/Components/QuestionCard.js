@@ -1,7 +1,6 @@
 import './QuestionCard.css';
 import { useState, useEffect, useRef } from 'react';
 import { getQuestions } from '../utils/data.js';
-import classNames from 'classnames';
 import ListOption from './ListOption';
 
 function QuestionCard(props) {
@@ -23,7 +22,6 @@ function QuestionCard(props) {
  
              if(e.target.checked){//add value if checked
                 
-                console.log(inputs[questions[questionIndex].questionKey])
                  if(inputs[questions[questionIndex].questionKey]){
                      input = [...inputs[questions[questionIndex].questionKey], e.target.value] 
                  }else{
@@ -132,19 +130,21 @@ function QuestionCard(props) {
             })}
             {   
                 questions[questionIndex].answer === 'range' &&
-                <div>
-                    <label>{questions[questionIndex].min}</label>
-                    <input
-                        type="range"
-                        name="answer"
-                        defaultValue={questions[questionIndex].min}
-                        min={questions[questionIndex].min}
-                        max={questions[questionIndex].max}
-                        step={questions[questionIndex].step}
-                        onChange={rangeChange}
-                    >
-                    </input>
-                    <label>{questions[questionIndex].max}</label>
+                <div className="range-container">
+                    <div className="range-sub-container">
+                        <label className="range-label">{questions[questionIndex].min}</label>
+                        <input
+                            type="range"
+                            name="answer"
+                            defaultValue={questions[questionIndex].min}
+                            min={questions[questionIndex].min}
+                            max={questions[questionIndex].max}
+                            step={questions[questionIndex].step}
+                            onChange={rangeChange}
+                        >
+                        </input>
+                        <label>{questions[questionIndex].max}</label>
+                    </div>
                     {
                         inputs[questions[questionIndex].questionKey] ? 
                         <p>{`${inputs[questions[questionIndex].questionKey]} ${questions[questionIndex].unit}`}</p> :
@@ -160,16 +160,19 @@ function QuestionCard(props) {
             
         </div>
         <div className="button-container">
-            <button
-                className="tertiary-button"
-                onClick={(e) => {
-                    if(questionIndex < questions.length-1){
-                        handleNext(e);
-                    }else{
-                        handleSubmit(e);
-                    } 
-                }}
-            >Next</button>
+            {
+                inputs[questions[questionIndex].questionKey] &&
+                <button
+                    className="tertiary-button"
+                    onClick={(e) => {
+                        if(questionIndex < questions.length-1){
+                            handleNext(e);
+                        }else{
+                            handleSubmit(e);
+                        } 
+                    }}
+                >Next</button>
+            }
         </div>
     </div>
     );
