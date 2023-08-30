@@ -46,6 +46,7 @@ function App() {
 
   const callAPI = async (prompt) => {
     const response = await getWorkout(prompt);
+    console.log(response)
     
     if(response.status && response.status !==200){
     

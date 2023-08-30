@@ -8,6 +8,7 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use('/', router)
 
