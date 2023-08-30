@@ -12,6 +12,10 @@ router.get("/", (req, res, next) => {
     res.send("Let em know, we back up");
 })
 
+router.get('/chat', (req, res) => {
+    res.status(200).send('we got it')
+})
+
 router.post("/chat", async (req, res, next) => {
    const message = req.body.message;
     try{
