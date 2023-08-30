@@ -51,7 +51,9 @@ function App() {
     if(response.status && response.status !==200){
     
       console.log(response)
-      setWorkout(`${response.status} error. Something went wrong on our end`)
+      setWorkout(`${response.status} error. ${response.statusText}`)
+      setStage('error')
+      //setWorkout(`${response.status} error. Something went wrong on our end`)
       setIsLoading(false);
     
     }else{
@@ -92,7 +94,7 @@ function App() {
       {
         stage === 'error' && 
         <div>
-          <p>Error</p>
+          <p>{workout}</p>
         </div>
       }
       { stage==='submitted' &&
