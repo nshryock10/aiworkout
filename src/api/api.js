@@ -12,9 +12,9 @@ export const getWorkout = async (prompt) => {
         // this works on chatGPT but preventing AWS req
         headers: {
             "Content-Type": "application/json",
-            /*"Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Origin" : "*", 
             "Access-Control-Allow-Credentials" : "*",
-            "Access-Control-Allow-Headers": "*" */
+            //"Access-Control-Allow-Headers": "*" 
           }
           
     })
