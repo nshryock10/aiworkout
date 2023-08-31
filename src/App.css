@@ -19,6 +19,8 @@
   /* Default spacing options */
   --padding: 15px;
 
+  background-color: var(--neutral);
+
  }
 
 

@@ -8,9 +8,10 @@ export const getPrompt = (inputs) => {
     const equipment = inputs.equipment.toString();
     const muscles = inputs.muscles.toString();
     const methodology = inputs.methods.toString();
+    const weeks = 1 //inputs.weeks
 
     const prompt = `\n
-        Give me a ${inputs.experience} level workout program for ${inputs.days} day(s) per week that is ${inputs.weeks} week(s) long.
+        Give me a ${inputs.experience} level workout program for ${inputs.days} day(s) per week that is ${weeks} week(s) long.
         
         Each workout should last approximately ${inputs.minutes} minutes.
         
@@ -85,7 +86,7 @@ const questions = [
         step: 1,
         unit: 'days'
     },
-    {
+   /* {
         id: 4,
         questionKey: 'weeks',
         question: 'How many weeks do you want your program to last?',
@@ -95,7 +96,7 @@ const questions = [
         min: 1,
         step: 1,
         unit: 'weeks'
-    },
+    },*/
     {
         id: 5,
         questionKey: 'minutes',
