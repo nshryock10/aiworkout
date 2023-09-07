@@ -56,7 +56,10 @@ function App() {
       //setWorkout(`${response.status} error. Something went wrong on our end`)
       setIsLoading(false);
     
-    }else{
+    }else if(response.status && response.status == 201){
+      
+
+    } else{
       
       try{
         const myObj = await JSON.parse(response[0].content);
@@ -99,7 +102,7 @@ function App() {
       }
       { stage==='submitted' &&
         isLoading===true &&
-        <Loading />
+        <Loading workout={workout} />
       }
     </div>
   );

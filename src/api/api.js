@@ -4,7 +4,7 @@ export const HER_ENDPOINT = "https://fiit-8a6ab7670425.herokuapp.com"
 
 export const getWorkout = async (prompt) => {
     try{
-    const response = await fetch(`${HER_ENDPOINT}/chat`, {
+    const response = await fetch(`${API_ENDPOINT}/chat`, {
         method: "POST",
         body: JSON.stringify({
             message: prompt

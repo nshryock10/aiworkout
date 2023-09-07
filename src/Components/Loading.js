@@ -2,12 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './Loading.css'
 
-function LoadingDots() {
+function LoadingDots(props) {
 
+  const message = props.message;
 
   return (
     <div>
-        <p>Generating workout...</p>
+        {props.message ? <p>{message}</p> : <p>Generating workout...</p>}
         <span className="loader"></span>
     </div>
     
