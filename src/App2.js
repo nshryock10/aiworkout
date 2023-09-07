@@ -43,7 +43,7 @@ function App2() {
     if(stage === 'submitted'){
         setIsLoading(true); 
         const dev_URL = 'http://localhost:3000';
-        const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com/';
+        const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com';
         const socket = io(prod_URL);//Add final socket server URL
         socket.on('connect', ()=> console.log(socket.id));
         socket.on('connect_error', ()=>{
