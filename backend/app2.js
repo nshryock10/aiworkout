@@ -25,7 +25,7 @@ const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com';
 const dev_URL = 'http://localhost:3001';
 const io = socketIo(server , {
     cors: {
-        origin: prod_URL
+        origin: "*"
     }
 })
 
