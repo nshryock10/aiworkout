@@ -44,7 +44,7 @@ function App2() {
         setIsLoading(true); 
         const dev_URL = 'http://localhost:3000';
         const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com';
-        const socket = io();//Add final socket server URL
+        const socket = io(prod_URL);//Add final socket server URL
         socket.on('connect', ()=> console.log(socket.id));
         socket.on('connect_error', ()=>{
             setTimeout(()=> socket.connect(), 5000)
