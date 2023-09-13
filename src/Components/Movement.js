@@ -7,7 +7,7 @@ function Movement(props) {
     const index = props.key;
     if(movement){
     return (
-        <div className='movement-box'>
+        <div className='movement-box' key={index}>
 
             <div className='movement-description'>
                 <span className='step'>{`${movement.step}: `}</span>

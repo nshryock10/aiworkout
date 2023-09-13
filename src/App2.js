@@ -11,14 +11,31 @@ import {io} from 'socket.io-client'
 function App2() {
 
   const [inputs, setInputs] = useState({});
-  const [stage, setStage] = useState('question');
+  const [stage, setStage] = useState('question'); //change to question for production
   const [isLoading, setIsLoading] = useState(false);
   const [workout, setWorkout] = useState(null);
   const [message, setMessage] = useState('Working on your request...')
 
 
-  //--- Section below is for socket.io implementation ---//
+  /*
+  //This block is just for workout card dev
+  useEffect(() => {
+    if(stage === 'submitted'){
+      console.log(inputs)
+    }
+    convertJson()
+  }, [stage])
+  
 
+  const convertJson = async () => {
+    const workData = await getWorkoutData();
+    //const jsonData = await workData.json();
+    //const data = await JSON.parse(workData);
+    setWorkout(workData);
+    //setStage('question')
+  }
+*/
+  //----------------------------------- 
 
   useEffect(() => {
 
@@ -54,6 +71,7 @@ function App2() {
     }
 
   }, [stage])
+
 
   const callAPI2 = async (prompt) => {
     const response = await getWorkout(prompt);

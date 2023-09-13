@@ -21,7 +21,7 @@ function Day(props) {
     })
 
     return (
-        <div key={index} className='day-card' >
+        <div key={day} className='day-card' >
             <div className='day-bar'>
                 <div className='day-label'>
                     <h3>{`${day.day}: `}</h3>

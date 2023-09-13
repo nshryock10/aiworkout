@@ -34,10 +34,10 @@ workout.weeks.map(week => {
             <Week week={workout.weeks[week-1]}/>    
         }
         <button 
-            className="primary-button"
+            className="secondary-button"
             onClick={()=>{setStage('question')}}
         >
-            Restart
+            Get new workout
         </button>
       </div>
     );
