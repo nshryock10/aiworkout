@@ -9,6 +9,7 @@ function LoadingDots(props) {
   return (
     <div>
         {props.message ? <p>{message}</p> : <p>Generating workout...</p>}
+        <p>This will take 1 to 2 minutes. Don't refresh</p>
         <span className="loader"></span>
     </div>
     

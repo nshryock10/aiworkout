@@ -23,9 +23,10 @@ const server = http.createServer(app);
 const PORT = 3000;
 const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com';
 const dev_URL = 'http://localhost:3001';
+const prod_URL2 = 'https://app.tryfiit.com';
 const io = socketIo(server , {
     cors: {
-        origin: prod_URL
+        origin: prod_URL2
     }
 })
 

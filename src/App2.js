@@ -16,35 +16,18 @@ function App2() {
   const [workout, setWorkout] = useState(null);
   const [message, setMessage] = useState('Working on your request...')
 
-  //Non-socket.io implementation
- /* useEffect(() => {
-    if(stage === 'submitted'){
-      setIsLoading(true)
-      const prompt = getPrompt(inputs);
-      const response = callAPI(prompt);
-    }
-  }, [stage]);
-*/
+
   //--- Section below is for socket.io implementation ---//
 
-  /*useEffect(() => {
-    if(isLoading){
-        let count = 0;
-        const msgAry = ['This may take a minute', 'I promise your workout is coming', 'The wait is almost over...']
-        setInterval(() => {
-            setMessage(`Let's ${count}`);
-        }, 5000)
-    }
 
-  }, [isLoading])
-*/
   useEffect(() => {
 
     if(stage === 'submitted'){
         setIsLoading(true); 
         const dev_URL = 'http://localhost:3000';
         const prod_URL = 'https://fiit-8a6ab7670425.herokuapp.com';
-        const socket = io();//Add final socket server URL
+        const prod_URL2 = 'https://app.tryfiit.com';
+        const socket = io(prod_URL2);//Add final socket server URL
         socket.on('connect', ()=> console.log(socket.id));
         socket.on('connect_error', ()=>{
             setTimeout(()=> socket.connect(), 5000)
@@ -75,41 +58,6 @@ function App2() {
   const callAPI2 = async (prompt) => {
     const response = await getWorkout(prompt);
     return response
-  }
-
-  //----------------------------------------------------//
-
-  const callAPI = async (prompt) => {
-    const response = await getWorkout(prompt);
-    console.log(response)
-    
-    if(response.status && response.status !==200){
-    
-      console.log(response)
-      setWorkout(`${response.status} error. ${response.statusText}`)
-      setStage('error')
-      //setWorkout(`${response.status} error. Something went wrong on our end`)
-      setIsLoading(false);
-    
-    }else if(response.status && response.status == 201){
-      
-
-    } else{
-      
-      try{
-        const myObj = await JSON.parse(response[0].content);
-        setWorkout(myObj)
-        setIsLoading(false);
-        console.log(response[0].content)
-      }catch(err){
-        console.log(err)
-        setStage('error')
-        setWorkout(response[0].content);
-        setIsLoading(false);
-        console.log(response[0].content)
-      }
-      
-    }
   }
 
   return (
