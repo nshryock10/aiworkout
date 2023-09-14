@@ -4,7 +4,12 @@ import "./Nav.css"
 function Nav() {
     return (
       <div className="nav-container">
-        <img src={fiit_logo} alt="fiit logo"></img>
+        <a
+          href="https://tryfiit.com/"
+        >
+          <img src={fiit_logo} alt="fiit logo"></img>
+        </a>
+        
       </div>
     );
   }
