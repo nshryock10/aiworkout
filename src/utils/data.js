@@ -133,11 +133,11 @@ const questions = [
                     },
                     {
                         category: 'Cardio',
-                        options: ['Assult Bike', 'Peleton', 'Elliptical', 'Treadmill', 'Stair Stepper', 'Rower', 'Skierg']
+                        options: ['Assault Bike', 'Peleton', 'Elliptical', 'Treadmill', 'Stair Stepper', 'Rower', 'Skierg']
                     },
                     {
                         category: 'Other',
-                        options: ['Medicine Ball', 'Resistance Bands', 'Battle Ropes', 'Jump Rope', 'TRX']
+                        options: ['Pull-up Bar', 'Medicine Ball', 'Resistance Bands', 'Battle Ropes', 'Jump Rope', 'TRX']
                     }
                 ],
         answer: 'multiple'
@@ -146,7 +146,7 @@ const questions = [
         id: 8,
         questionKey: 'methods',
         question: 'Are there specific methodologies you want to incorporate?',
-        options: ['Strength Training', 'HIIT', 'AMRAP', 'EMOM', 'Supersets', 'Running'],
+        options: ['Traditional Strength Training', 'Body weight exercises', 'Calisthenics', 'HIIT', 'EMOM', 'Supersets', 'Running'],
         answer: 'multiple'
     },
 ];
