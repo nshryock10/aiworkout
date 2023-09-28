@@ -65,7 +65,7 @@ const questions = [
         id: 1,
         questionKey: 'experience',
         question: 'What is your experience level?',
-        options: ['Beginner', 'Intermediate'],
+        options: ['Beginner', 'Intermediate', 'Advanced'],
         answer: 'single'
     },
     {
