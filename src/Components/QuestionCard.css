@@ -12,7 +12,6 @@
 }
 
 input[type="range"]{
-    -webkit-appearance: none;
     width: 70%;
     height: 50%;
 }
@@ -22,7 +21,6 @@ input[type="range"]:focus{
 }
 
 input[type="range"]:hover{
-    -webkit-appearance: none;
     background: var(--primary);
     border-radius: 8px;
 }

@@ -19,7 +19,14 @@ function Day(props) {
     const displayWorkout = classNames('workout', {
         open: chevOpen,
     })
+   if(!day){
+    return (
+        <div>
+            <p>Error on our end. Refresh and try again</p>
+        </div>
+    )
 
+   }else{
     return (
         <div key={day} className='day-card' >
             <div className='day-bar'>
@@ -57,7 +64,7 @@ function Day(props) {
             
         </div>
             
-    )
+    )}
 }
 
 export default Day;

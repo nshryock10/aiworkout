@@ -5,7 +5,7 @@ import Day from './Day';
 function Week(props) {
 
     const week = props.week;
-
+    if(week){
     return (
         <div>
             {week !== null && 
@@ -16,6 +16,13 @@ function Week(props) {
                 })}
         </div>
     )
+    }else{
+        return (
+            <div>
+                <p>Error on our end. Refresh and try again</p>
+            </div>
+        )
+    }
 }
 
 export default Week;
