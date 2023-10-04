@@ -1,7 +1,9 @@
 .day-card{
     border-radius: 5px;
     margin: 12px;
-   background-image: linear-gradient(30deg, var(--gr1), white); 
+    max-width: var(--max-width);
+    margin: 12px auto;
+    background-image: linear-gradient(30deg, var(--gr1), white); 
     background-color: white; 
     border: 1px solid var(--lighter-neutral);
     box-shadow: 3px 3px 5px var(--lighter-neutral);

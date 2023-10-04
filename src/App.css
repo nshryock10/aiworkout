@@ -19,6 +19,7 @@
 
   /* Default spacing options */
   --padding: 15px;
+  --max-width: 600px;
 
   background-color: var(--neutral);
 
