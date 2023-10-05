@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Week from './Week';
 import SelectMenu from "./SelectMenu";
-import './WorkOutCard.css';
+import './WorkoutCard.css';
 
 function WorkoutCard(props) {
 
