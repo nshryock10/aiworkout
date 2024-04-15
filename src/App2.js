@@ -48,6 +48,7 @@ function App2() {
         const socket = io(prod_URL3);//Add final socket server URL
         socket.on('connect', () => console.log(socket.id));
         socket.on('connect_error', ()=>{
+            console.log('error in socket')
             console.log(socket)
             setTimeout(()=> socket.connect(), 5000)
         })
