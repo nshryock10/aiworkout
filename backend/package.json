@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon ./app2.js",
-        "build": "cd ../ && cd ./src && npm install && npm run build",
+        "build": "node app2.js && cd ../ && cd ./src && npm install && npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
