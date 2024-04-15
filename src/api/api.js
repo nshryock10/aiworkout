@@ -34,7 +34,7 @@ export const getWorkout = async (prompt) => {
 
 export const checkServer = async () => {
     try {
-        const respone = await fetch(`${VER_ENDPOINT}/test`,
+        const response = await fetch(`${VER_ENDPOINT}/test`,
         {
             method: 'GET',
             body: JSON.stringify({
