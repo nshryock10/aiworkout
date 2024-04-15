@@ -1,10 +1,11 @@
 export const API_ENDPOINT = "http://localhost:3000"; //Uncomment in Prod
 export const AWS_ENDPOINT = "https://a8jukcsjq9.execute-api.us-east-1.amazonaws.com/dev";
 export const HER_ENDPOINT = "https://fiit-8a6ab7670425.herokuapp.com"
+export const VER_ENDPOINT = 'https://aiworkout-ruby.vercel.app'
 
 export const getWorkout = async (prompt) => {
     try{
-    const response = await fetch(`${HER_ENDPOINT}/chat`, {
+    const response = await fetch(`${VER_ENDPOINT}/chat`, {
         method: "POST",
         body: JSON.stringify({
             message: prompt
