@@ -12,8 +12,8 @@
     ],
     "routes": [
       {
-        "src": "backend/.*",
-        "dest": "backend/app2.js"
+        "src": "./backend/.*",
+        "dest": "./backend/app2.js"
       },
       {
         "src": "build/static/.*",
