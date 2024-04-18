@@ -4,9 +4,10 @@ import Nav from './Components/Nav';
 import QuestionCard from './Components/QuestionCard';
 import WorkoutCard from './Components/WorkOutCard';
 import Loading from './Components/Loading';
-import { getWorkout } from './api/api';
+import { getWorkout, checkServer } from './api/api';
 import { getPrompt, getWorkoutData } from './utils/data';
 import {io} from 'socket.io-client'
+import { response } from 'express';
 
 function App2() {
 
@@ -74,6 +75,17 @@ function App2() {
     }
 
   }, [stage])
+
+  useEffect(() => {
+
+    checkServer()
+
+  }, [])
+
+  const checkServer = async () => {
+    const check = await checkServer()
+    console.log(check)
+  }
 
 
   const callAPI2 = async (prompt) => {

@@ -12,6 +12,10 @@ router.get("/", (req, res, next) => {
     res.send("Let em know, we back up");
 })
 
+router.get("/test", (req, res, next) => {
+    res.status(200).send('server running')
+})
+
 router.get('/chat', (req, res) => {
     res.status(200).send('we got it')
 })

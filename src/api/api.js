@@ -52,8 +52,7 @@ export const checkServer = async () => {
             if(response.status !== 200){
                 return response
             }else{
-                const workout = await response.json();
-                return workout;
+                return response;
             }
             
         }}catch(err){
