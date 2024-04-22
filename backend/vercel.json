@@ -17,11 +17,11 @@
     "rewrites": [
       { 
         "source": "/(.*)", 
-        "destination": "/backend/app2.js" 
+        "destination": "/app2.js" 
       },
       {
         "source": "/(.*)",
-        "destination": "./public/index.html"
+        "destination": "/index.html"
       }
     ]
   }
