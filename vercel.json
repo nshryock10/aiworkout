@@ -14,12 +14,6 @@
         "use": "@vercel/static"
       }
     ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "public/index.html"
-      }
-    ],
     "rewrites": [
       { 
         "source": "/(.*)", 
